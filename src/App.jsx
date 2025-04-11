@@ -23,6 +23,11 @@ const Section = ({ title, children }) => (
 const App = () => {
     const [isWebRadioOpen, setIsWebRadioOpen] = useState(false);
     const [isCasamenceOpen, setIsCasamenceOpen] = useState(false);
+    const [isVPNOpen, setIsVPNOpen] = useState(false);
+    const [isOfficeNetworkOpen, setIsOfficeNetworkOpen] = useState(false);
+    const [isNetworkOpen, setIsNetworkOpen] = useState(false);
+    const [isMCServOpen, setIsMCServOpen] = useState(false);
+    const [isPersonnalServOpen, setIsPersonalServOpen] = useState(false);
 
     return (
         <div className="min-h-screen bg-gray-50 text-gray-900">
@@ -192,7 +197,7 @@ const App = () => {
                             <CardTitle>Mise en place d'un VPN</CardTitle>
                             <CardContent>Création et configuration d’un VPN fonctionnel dans un environnement d’entreprise simulé (2ème année).</CardContent>
                             <CardFooter>
-                                <Button variant="outline" disabled>En cours</Button>
+                                <Button variant="outline" onClick={() => setIsVPNOpen(true)}>Voir plus</Button>
                             </CardFooter>
                         </Card>
 
@@ -201,7 +206,7 @@ const App = () => {
                             <CardTitle>Infrastructure réseau d’entreprise</CardTitle>
                             <CardContent>Projet de classe simulant le déploiement complet d’un SI dans une entreprise. (En cours)</CardContent>
                             <CardFooter>
-                                <Button variant="outline" disabled>En cours</Button>
+                                <Button variant="outline" onClick={() => setIsOfficeNetworkOpen(true)}>En cours</Button>
                             </CardFooter>
                         </Card>
 
@@ -210,7 +215,7 @@ const App = () => {
                             <CardTitle>Réseau entreprise perso (stage 1A)</CardTitle>
                             <CardContent>Conception d’une structure réseau complète en autonomie durant mon premier stage.</CardContent>
                             <CardFooter>
-                                <Button variant="outline" disabled>Voir plus</Button>
+                                <Button variant="outline" onClick={() => setIsNetworkOpen(true)}>Voir plus</Button>
                             </CardFooter>
                         </Card>
 
@@ -285,7 +290,7 @@ const App = () => {
                         </CarrouselItem>
                         <CarrouselSuivant />
                     </Carrousel>
-                    <p className="mt-4"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, illo soluta? Eligendi dignissimos mollitia corrupti debitis, repudiandae atque nemo ea odit! Id nisi voluptatibus, voluptatem commodi cumque iste dolorum amet.</p>
+                    <p className="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, illo soluta? Eligendi dignissimos mollitia corrupti debitis, repudiandae atque nemo ea odit! Id nisi voluptatibus, voluptatem commodi cumque iste dolorum amet.</p>
                 </DialogueContent>
                 <DialogueFooter>
                     <Button variant="outline" onClick={() => setIsWebRadioOpen(false)}>Fermer</Button>
@@ -305,10 +310,70 @@ const App = () => {
                         </CarrouselItem>
                         <CarrouselSuivant />
                     </Carrousel>
-                    <p className="mt-4"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, illo soluta? Eligendi dignissimos mollitia corrupti debitis, repudiandae atque nemo ea odit! Id nisi voluptatibus, voluptatem commodi cumque iste dolorum amet.</p>
+                    <p className="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, illo soluta? Eligendi dignissimos mollitia corrupti debitis, repudiandae atque nemo ea odit! Id nisi voluptatibus, voluptatem commodi cumque iste dolorum amet.</p>
                 </DialogueContent>
                 <DialogueFooter>
                     <Button variant="outline" onClick={() => setIsCasamenceOpen(false)}>Fermer</Button>
+                </DialogueFooter>
+            </Dialogue>
+
+            <Dialogue isOpen={isVPNOpen} onClose={() => setIsVPNOpen(false)}>
+                <DialogueTitle>VPN d'entreprise</DialogueTitle>
+                <DialogueContent>
+                    <Carrousel interval={6000} fit="cover" aspectRatio="16/9" className="max-h-[320px]">
+                        <CarrouselPrecedent />
+                        <CarrouselItem>
+                            <media type="image" src="/image/img1.jpg">Début du projet</media>
+                        </CarrouselItem>
+                        <CarrouselItem>
+                            <media type="video" src="/video/intro.mp4" unmute={true}>Vidéo explicative</media>
+                        </CarrouselItem>
+                        <CarrouselSuivant />
+                    </Carrousel>
+                    <p className="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, illo soluta? Eligendi dignissimos mollitia corrupti debitis, repudiandae atque nemo ea odit! Id nisi voluptatibus, voluptatem commodi cumque iste dolorum amet.</p>
+                </DialogueContent>
+                <DialogueFooter>
+                    <Button variant="outline" onClick={() => setIsVPNOpen(false)}>Fermer</Button>
+                </DialogueFooter>
+            </Dialogue>
+
+            <Dialogue isOpen={isOfficeNetworkOpen} onClose={() => setIsOfficeNetworkOpen(false)}>
+                <DialogueTitle>Infrastructure réseau d'entreprise</DialogueTitle>
+                <DialogueContent>
+                    <Carrousel interval={6000} fit="cover" aspectRatio="16/9" className="max-h-[320px]">
+                        <CarrouselPrecedent />
+                        <CarrouselItem>
+                            <media type="image" src="/image/img1.jpg">Début du projet</media>
+                        </CarrouselItem>
+                        <CarrouselItem>
+                            <media type="video" src="/video/intro.mp4" unmute={true}>Vidéo explicative</media>
+                        </CarrouselItem>
+                        <CarrouselSuivant />
+                    </Carrousel>
+                    <p className="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, illo soluta? Eligendi dignissimos mollitia corrupti debitis, repudiandae atque nemo ea odit! Id nisi voluptatibus, voluptatem commodi cumque iste dolorum amet.</p>
+                </DialogueContent>
+                <DialogueFooter>
+                    <Button variant="outline" onClick={() => setIsOfficeNetworkOpen(false)}>Fermer</Button>
+                </DialogueFooter>
+            </Dialogue>
+
+            <Dialogue isOpen={isNetworkOpen} onClose={() => setIsNetworkOpen(false)}>
+                <DialogueTitle>Infrastructure réseau d'entreprise</DialogueTitle>
+                <DialogueContent>
+                    <Carrousel interval={6000} fit="cover" aspectRatio="16/9" className="max-h-[320px]">
+                        <CarrouselPrecedent />
+                        <CarrouselItem>
+                            <media type="image" src="/image/img1.jpg">Début du projet</media>
+                        </CarrouselItem>
+                        <CarrouselItem>
+                            <media type="video" src="/video/intro.mp4" unmute={true}>Vidéo explicative</media>
+                        </CarrouselItem>
+                        <CarrouselSuivant />
+                    </Carrousel>
+                    <p className="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, illo soluta? Eligendi dignissimos mollitia corrupti debitis, repudiandae atque nemo ea odit! Id nisi voluptatibus, voluptatem commodi cumque iste dolorum amet.</p>
+                </DialogueContent>
+                <DialogueFooter>
+                    <Button variant="outline" onClick={() => setIsNetworkOpen(false)}>Fermer</Button>
                 </DialogueFooter>
             </Dialogue>
 
