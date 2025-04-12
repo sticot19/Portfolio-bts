@@ -224,7 +224,7 @@ const App = () => {
                             <CardTitle>Serveur Minecraft administré</CardTitle>
                             <CardContent>Mise en place et gestion d’un serveur Minecraft Linux (accès distant, permissions, modding).</CardContent>
                             <CardFooter>
-                                <Button variant="outline" disabled>Voir plus</Button>
+                                <Button variant="outline" onClick={() => setIsMCServOpen(true)}>Voir plus</Button>
                             </CardFooter>
                         </Card>
 
@@ -233,7 +233,7 @@ const App = () => {
                             <CardTitle>Création de serveur perso</CardTitle>
                             <CardContent>Projet en cours visant à héberger mes services persos à la maison (web, jeu, surveillance, etc).</CardContent>
                             <CardFooter>
-                                <Button variant="outline" disabled>En cours</Button>
+                                <Button variant="outline" onClick={() => setIsPersonalServOpen(true)}>En cours</Button>
                             </CardFooter>
                         </Card>
 
@@ -374,6 +374,46 @@ const App = () => {
                 </DialogueContent>
                 <DialogueFooter>
                     <Button variant="outline" onClick={() => setIsNetworkOpen(false)}>Fermer</Button>
+                </DialogueFooter>
+            </Dialogue>
+
+            <Dialogue isOpen={isMCServOpen} onClose={() => setIsMCServOpen(false)}>
+                <DialogueTitle>Infrastructure réseau d'entreprise</DialogueTitle>
+                <DialogueContent>
+                    <Carrousel interval={6000} fit="cover" aspectRatio="16/9" className="max-h-[320px]">
+                        <CarrouselPrecedent />
+                        <CarrouselItem>
+                            <media type="image" src="/image/img1.jpg">Début du projet</media>
+                        </CarrouselItem>
+                        <CarrouselItem>
+                            <media type="video" src="/video/intro.mp4" unmute={true}>Vidéo explicative</media>
+                        </CarrouselItem>
+                        <CarrouselSuivant />
+                    </Carrousel>
+                    <p className="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, illo soluta? Eligendi dignissimos mollitia corrupti debitis, repudiandae atque nemo ea odit! Id nisi voluptatibus, voluptatem commodi cumque iste dolorum amet.</p>
+                </DialogueContent>
+                <DialogueFooter>
+                    <Button variant="outline" onClick={() => setIsMCServOpen(false)}>Fermer</Button>
+                </DialogueFooter>
+            </Dialogue>
+
+            <Dialogue isOpen={isPersonnalServOpen} onClose={() => setIsPersonalServOpen(false)}>
+                <DialogueTitle>Infrastructure réseau d'entreprise</DialogueTitle>
+                <DialogueContent>
+                    <Carrousel interval={6000} fit="cover" aspectRatio="16/9" className="max-h-[320px]">
+                        <CarrouselPrecedent />
+                        <CarrouselItem>
+                            <media type="image" src="/image/img1.jpg">Début du projet</media>
+                        </CarrouselItem>
+                        <CarrouselItem>
+                            <media type="video" src="/video/intro.mp4" unmute={true}>Vidéo explicative</media>
+                        </CarrouselItem>
+                        <CarrouselSuivant />
+                    </Carrousel>
+                    <p className="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, illo soluta? Eligendi dignissimos mollitia corrupti debitis, repudiandae atque nemo ea odit! Id nisi voluptatibus, voluptatem commodi cumque iste dolorum amet.</p>
+                </DialogueContent>
+                <DialogueFooter>
+                    <Button variant="outline" onClick={() => setIsPersonalServOpen(false)}>Fermer</Button>
                 </DialogueFooter>
             </Dialogue>
 
